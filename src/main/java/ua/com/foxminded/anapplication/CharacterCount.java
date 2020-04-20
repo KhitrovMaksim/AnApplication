@@ -9,23 +9,19 @@ public class CharacterCount {
     private static String QUOTE_WITH_DASH = "\" - ";
 
     public String countOfChars(String inputString) {
+        Map<Character, Integer> charCountMap = new LinkedHashMap<>();
+        StringBuilder resultCountMap = new StringBuilder();
 
         if (inputString == null) {
             throw new IllegalArgumentException("Inputs data cannot be null.");
         }
 
-        Map<Character, Integer> charCountMap = new LinkedHashMap<Character, Integer>();
-        StringBuilder resultCountMap = new StringBuilder();
-        char[] strArray = inputString.toCharArray();
-
-        for (char c : strArray) {
-
-            if (charCountMap.containsKey(c)) {
-                charCountMap.put(c, charCountMap.get(c) + 1);
+        for (char inputsChar : inputString.toCharArray()) {
+            if (charCountMap.containsKey(inputsChar)) {
+                charCountMap.put(inputsChar, charCountMap.get(inputsChar) + 1);
             } else {
-                charCountMap.put(c, 1);
+                charCountMap.put(inputsChar, 1);
             }
-
         }
 
         for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
