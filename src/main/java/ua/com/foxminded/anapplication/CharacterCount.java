@@ -12,7 +12,7 @@ public class CharacterCount {
 
     public String countOfChars(String inputString) {
         Map<Character, Integer> charCountMap = new LinkedHashMap<>();
-        StringBuilder resultCountMap = new StringBuilder();
+        StringBuilder result = new StringBuilder();
 
         if (inputString == null) {
             throw new IllegalArgumentException("Inputs data cannot be null.");
@@ -20,7 +20,7 @@ public class CharacterCount {
 
         if (cache.containsKey(inputString)) {
             System.out.println("cahce");
-            resultCountMap.append(cache.get(inputString));
+            result.append(cache.get(inputString));
         } else {
             for (char inputsChar : inputString.toCharArray()) {
                 if (charCountMap.containsKey(inputsChar)) {
@@ -31,13 +31,13 @@ public class CharacterCount {
             }
 
             for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
-                resultCountMap.append(QUOTE).append(entry.getKey()).append(QUOTE_WITH_DASH).append(entry.getValue())
+                result.append(QUOTE).append(entry.getKey()).append(QUOTE_WITH_DASH).append(entry.getValue())
                         .append(LINE_END);
             }
 
-            cache.put(inputString, resultCountMap.toString());
+            cache.put(inputString, result.toString());
         }
 
-        return resultCountMap.toString();
+        return result.toString();
     }
 }
