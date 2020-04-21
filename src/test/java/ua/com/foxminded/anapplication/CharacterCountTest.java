@@ -34,6 +34,24 @@ public class CharacterCountTest {
     }
     
     @Test
+    void countOfChars_ShouldReturnCertainString_IfInputIsFewWords() {
+        String expected =
+                    "\"y\" - 1\n" +
+                    "\"o\" - 2\n" +
+                    "\"u\" - 1\n" +
+                    "\" \" - 2\n" +
+                    "\"a\" - 1\n" +
+                    "\"r\" - 1\n" +
+                    "\"e\" - 3\n" +
+                    "\"w\" - 1\n" +
+                    "\"l\" - 1\n" +
+                    "\"c\" - 1\n" +
+                    "\"m\" - 1\n";
+
+        assertEquals(expected, result.countOfChars("you are welcome"));
+    }
+    
+    @Test
     void countOfChars_ShouldReturnCertainString_IfInputIsBlank() {
         String expected = "";
 
