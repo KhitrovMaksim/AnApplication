@@ -5,10 +5,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class CharacterCount {
-    private HashMap<String, String> cache = new HashMap<>();
     private static String LINE_END = "\n";
     private static String QUOTE = "\"";
     private static String QUOTE_WITH_DASH = "\" - ";
+
+    private HashMap<String, String> cache = new HashMap<>();
 
     public String countOfChars(String inputString) {
         Map<Character, Integer> charCountMap = new LinkedHashMap<>();
