@@ -2,6 +2,9 @@ package ua.com.foxminded.anapplication;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.lang.reflect.Field;
+import java.util.HashMap;
+
 import org.junit.jupiter.api.Test;
 
 public class CharacterCountTest {
@@ -102,5 +105,22 @@ public class CharacterCountTest {
                     "\"1\" - 1\n";
 
         assertEquals(expected, result.countOfChars("1"));
+    }
+
+    @Test
+    void countOfChars_ShouldReturnResultFromCache_IfInputIsRepeat() throws Throwable {
+        HashMap<String, String> expectedCache = new HashMap<>();
+        expectedCache.put(" ", " \n\" \" - 1\n");
+        
+        result.countOfChars(" ");
+        result.countOfChars(" ");
+        
+        Field cacheFromClass = CharacterCount.class.getDeclaredField("cache");
+        cacheFromClass.setAccessible(true);
+        
+        @SuppressWarnings("unchecked")
+        HashMap<String, String> cacheFromResult = (HashMap<String, String>) cacheFromClass.get(result);
+
+        assertEquals(expectedCache.containsKey(" "), cacheFromResult.containsKey(" "));
     }
 }
