@@ -6,7 +6,7 @@ public class Runner {
         CharacterCount characterCount = new CharacterCount();
         String input = "hello!";
 
-        System.out.println(input + "\n" + characterCount.countOfChars(input));
+        System.out.println(characterCount.countOfChars(input));
 
     }
 

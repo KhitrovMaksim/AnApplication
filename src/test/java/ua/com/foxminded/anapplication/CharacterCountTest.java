@@ -11,9 +11,10 @@ public class CharacterCountTest {
     @Test
     void countOfChars_ShouldReturnCertainString_IfInputIsOneWord() {
         String expected =
-            "\"e\" - 2\n" +
-            "\"l\" - 1\n" +
-            "\"s\" - 1\n";
+                    "else\n" +
+                    "\"e\" - 2\n" +
+                    "\"l\" - 1\n" +
+                    "\"s\" - 1\n";
 
         assertEquals(expected, result.countOfChars("else"));
     }
@@ -21,6 +22,7 @@ public class CharacterCountTest {
     @Test
     void countOfChars_ShouldReturnCertainString_IfInputIsTwoWords() {
         String expected =
+                    "hello world\n" +
                     "\"h\" - 1\n" +
                     "\"e\" - 1\n" +
                     "\"l\" - 3\n" +
@@ -36,6 +38,7 @@ public class CharacterCountTest {
     @Test
     void countOfChars_ShouldReturnCertainString_IfInputIsFewWords() {
         String expected =
+                    "you are welcome\n" +
                     "\"y\" - 1\n" +
                     "\"o\" - 2\n" +
                     "\"u\" - 1\n" +
@@ -52,44 +55,52 @@ public class CharacterCountTest {
     }
     
     @Test
+    void countOfChars_ShouldReturnCertainString_IfInputIsWordWithSymbol() {
+        String expected =
+                    "hello!\n" +
+                    "\"h\" - 1\n" +
+                    "\"e\" - 1\n" +
+                    "\"l\" - 2\n" +
+                    "\"o\" - 1\n" +
+                    "\"!\" - 1\n";
+
+        assertEquals(expected, result.countOfChars("hello!"));
+    }
+    
+    @Test
+    void countOfChars_ShouldReturnCertainString_IfInputIsBigNumber() {
+        String expected =
+                    "808080\n" +
+                    "\"8\" - 3\n" +
+                    "\"0\" - 3\n";
+
+        assertEquals(expected, result.countOfChars("808080"));
+    }
+    
+    @Test
     void countOfChars_ShouldReturnCertainString_IfInputIsBlank() {
-        String expected = "";
+        String expected =
+                    "\n" +
+                    "";
 
         assertEquals(expected, result.countOfChars(""));
     }
     
     @Test
     void countOfChars_ShouldReturnCertainString_IfInputIsSpace() {
-        String expected = "\" \" - 1\n";
+        String expected =
+                    " \n" +
+                    "\" \" - 1\n";
 
         assertEquals(expected, result.countOfChars(" "));
     }
     
     @Test
     void countOfChars_ShouldReturnCertainString_IfInputIsNumber() {
-        String expected = "\"1\" - 1\n";
+        String expected =
+                    "1\n" +
+                    "\"1\" - 1\n";
 
         assertEquals(expected, result.countOfChars("1"));
-    }
-    
-    @Test
-    void countOfChars_ShouldReturnCertainString_IfInputIsBigNumber() {
-        String expected = 
-                "\"8\" - 3\n" +
-                "\"0\" - 3\n";
-
-        assertEquals(expected, result.countOfChars("808080"));
-    }
-    
-    @Test
-    void countOfChars_ShouldReturnCertainString_IfInputIsWordWithSymbol() {
-        String expected = 
-                "\"h\" - 1\n" +
-                "\"e\" - 1\n" +
-                "\"l\" - 2\n" +
-                "\"o\" - 1\n" +
-                "\"!\" - 1\n";
-
-        assertEquals(expected, result.countOfChars("hello!"));
     }
 }
