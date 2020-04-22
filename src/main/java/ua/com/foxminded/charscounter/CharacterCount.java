@@ -1,4 +1,4 @@
-package ua.com.foxminded.anapplication;
+package ua.com.foxminded.charscounter;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;

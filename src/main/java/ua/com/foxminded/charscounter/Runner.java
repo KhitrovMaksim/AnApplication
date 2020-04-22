@@ -1,4 +1,4 @@
-package ua.com.foxminded.anapplication;
+package ua.com.foxminded.charscounter;
 
 public class Runner {
 

@@ -1,4 +1,4 @@
-package ua.com.foxminded.anapplication;
+package ua.com.foxminded.charscounter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -6,6 +6,8 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
+
+import ua.com.foxminded.charscounter.CharacterCount;
 
 public class CharacterCountTest {
     
