@@ -20,6 +20,7 @@ public class CharacterCount {
         }
 
         if (cache.containsKey(input)) {
+            // System.out.println("CAHCE");
             result.append(cache.get(input));
         } else {
             for (char inputsChar : input.toCharArray()) {
@@ -47,4 +48,20 @@ public class CharacterCount {
 
         return result.toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj == null) {
+            return false;
+        } else if (obj instanceof CharacterCount) {
+            CharacterCount characterCount = (CharacterCount) obj;
+            if (characterCount.cache.equals(cache)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

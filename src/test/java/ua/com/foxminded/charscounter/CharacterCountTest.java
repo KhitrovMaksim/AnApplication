@@ -113,7 +113,7 @@ public class CharacterCountTest {
     void countOfChars_ShouldReturnResultFromCache_IfInputIsRepeat() throws Throwable {
         HashMap<String, String> expectedCache = new HashMap<>();
         expectedCache.put(" ", " \n\" \" - 1\n");
-        
+
         result.countOfChars(" ");
         result.countOfChars(" ");
         
@@ -124,5 +124,20 @@ public class CharacterCountTest {
         HashMap<String, String> cacheFromResult = (HashMap<String, String>) cacheFromClass.get(result);
 
         assertEquals(expectedCache.containsKey(" "), cacheFromResult.containsKey(" "));
+    }
+
+    @Test
+    void countOfChars_ShouldReturnResultTrue_IfResultInCache() {
+        Boolean resultIncache = false;
+        CharacterCount resultWithoutCache = new CharacterCount();
+        CharacterCount resultWithCache = new CharacterCount();
+        resultWithCache.countOfChars("hello!");
+        resultWithoutCache.countOfChars("hello!");
+        
+        if (!resultWithoutCache.equals(resultWithCache)) {
+            resultIncache = true;
+        }
+
+        assertEquals(true, resultIncache);
     }
 }
