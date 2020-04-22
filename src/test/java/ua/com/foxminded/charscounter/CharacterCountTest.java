@@ -1,6 +1,8 @@
 package ua.com.foxminded.charscounter;
 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -125,19 +127,14 @@ public class CharacterCountTest {
 
         assertEquals(expectedCache.containsKey(" "), cacheFromResult.containsKey(" "));
     }
-
+    
     @Test
     void countOfChars_ShouldReturnResultTrue_IfResultInCache() {
-        Boolean resultIncache = false;
-        CharacterCount resultWithoutCache = new CharacterCount();
-        CharacterCount resultWithCache = new CharacterCount();
-        resultWithCache.countOfChars("hello!");
-        resultWithoutCache.countOfChars("hello!");
-        
-        if (!resultWithoutCache.equals(resultWithCache)) {
-            resultIncache = true;
-        }
+        CharacterCount ñharacterCount = new CharacterCount();
 
-        assertEquals(true, resultIncache);
+        String firstCall =  ñharacterCount.countOfChars("hello!");
+        String secondCall = ñharacterCount.countOfChars("hello!");
+        
+        assertTrue(firstCall == secondCall);
     }
 }

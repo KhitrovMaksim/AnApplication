@@ -13,15 +13,14 @@ public class CharacterCount {
 
     public String countOfChars(String input) {
         Map<Character, Integer> charsCounter = new LinkedHashMap<>();
-        StringBuilder result = new StringBuilder("");
+        String result;
 
         if (input == null) {
             throw new IllegalArgumentException("Inputs data cannot be null.");
         }
 
         if (cache.containsKey(input)) {
-            // System.out.println("CAHCE");
-            result.append(cache.get(input));
+            result = cache.get(input);
         } else {
             for (char inputsChar : input.toCharArray()) {
                 if (charsCounter.containsKey(inputsChar)) {
@@ -30,12 +29,12 @@ public class CharacterCount {
                     charsCounter.put(inputsChar, 1);
                 }
             }
-            result.append(input).append(LINE_END).append(composeResult(charsCounter));
+            result = input + LINE_END + composeResult(charsCounter);
 
-            cache.put(input, result.toString());
+            cache.put(input, result);
         }
 
-        return result.toString();
+        return result;
     }
 
     private String composeResult(Map<Character, Integer> charCountMap) {
@@ -47,21 +46,6 @@ public class CharacterCount {
         }
 
         return result.toString();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        } else if (obj == null) {
-            return false;
-        } else if (obj instanceof CharacterCount) {
-            CharacterCount characterCount = (CharacterCount) obj;
-            if (characterCount.cache.equals(cache)) {
-                return true;
-            }
-        }
-        return false;
     }
 
 }
