@@ -11,27 +11,27 @@ public class CharacterCount {
 
     private HashMap<String, String> cache = new HashMap<>();
 
-    public String countOfChars(String inputString) {
-        Map<Character, Integer> charCountMap = new LinkedHashMap<>();
+    public String countOfChars(String input) {
+        Map<Character, Integer> charsCounter = new LinkedHashMap<>();
         StringBuilder result = new StringBuilder("");
 
-        if (inputString == null) {
+        if (input == null) {
             throw new IllegalArgumentException("Inputs data cannot be null.");
         }
 
-        if (cache.containsKey(inputString)) {
-            result.append(cache.get(inputString));
+        if (cache.containsKey(input)) {
+            result.append(cache.get(input));
         } else {
-            for (char inputsChar : inputString.toCharArray()) {
-                if (charCountMap.containsKey(inputsChar)) {
-                    charCountMap.put(inputsChar, charCountMap.get(inputsChar) + 1);
+            for (char inputsChar : input.toCharArray()) {
+                if (charsCounter.containsKey(inputsChar)) {
+                    charsCounter.put(inputsChar, charsCounter.get(inputsChar) + 1);
                 } else {
-                    charCountMap.put(inputsChar, 1);
+                    charsCounter.put(inputsChar, 1);
                 }
             }
-            result.append(inputString).append(LINE_END).append(composeResult(charCountMap));
+            result.append(input).append(LINE_END).append(composeResult(charsCounter));
 
-            cache.put(inputString, result.toString());
+            cache.put(input, result.toString());
         }
 
         return result.toString();
